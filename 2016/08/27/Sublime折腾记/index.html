@@ -1,0 +1,767 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="http://cdn.staticfile.org/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="tech,editor," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="总总" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="1. why Sublime针对一个后端是Java的前端空城师，那么这个年代我的编辑器/IDE选择有如下几个：  IntelliJ IDEA WebStorm Sublime Text Atom Visual Studio Code  OK，下面开始撕逼，每个群里和论坛里都有旷日持久的编辑器大战，框架大战。其实最终的结论都是一个，适合自己的才是最好的，所以我说说我现在选择编辑器的几个因素：  尚未">
+<meta name="keywords" content="tech,editor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sublime折腾记">
+<meta property="og:url" content="ifibercc.com/2016/08/27/Sublime折腾记/index.html">
+<meta property="og:site_name" content="总总">
+<meta property="og:description" content="1. why Sublime针对一个后端是Java的前端空城师，那么这个年代我的编辑器/IDE选择有如下几个：  IntelliJ IDEA WebStorm Sublime Text Atom Visual Studio Code  OK，下面开始撕逼，每个群里和论坛里都有旷日持久的编辑器大战，框架大战。其实最终的结论都是一个，适合自己的才是最好的，所以我说说我现在选择编辑器的几个因素：  尚未">
+<meta property="og:updated_time" content="2017-04-24T09:24:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sublime折腾记">
+<meta name="twitter:description" content="1. why Sublime针对一个后端是Java的前端空城师，那么这个年代我的编辑器/IDE选择有如下几个：  IntelliJ IDEA WebStorm Sublime Text Atom Visual Studio Code  OK，下面开始撕逼，每个群里和论坛里都有旷日持久的编辑器大战，框架大战。其实最终的结论都是一个，适合自己的才是最好的，所以我说说我现在选择编辑器的几个因素：  尚未">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6252950364480341000,
+      author: '老大'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="ifibercc.com/2016/08/27/Sublime折腾记/"/>
+
+  <title> Sublime折腾记 | 总总 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">总总</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Keep surprising people.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Sublime折腾记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-27T11:42:01+08:00" content="2016-08-27">
+              2016-08-27
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/27/Sublime折腾记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/Sublime折腾记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-why-Sublime"><a href="#1-why-Sublime" class="headerlink" title="1. why Sublime"></a>1. why Sublime</h2><p>针对一个后端是Java的前端空城师，那么这个年代我的编辑器/IDE选择有如下几个：</p>
+<ul>
+<li><a href="https://www.jetbrains.com/idea/" target="_blank" rel="external">IntelliJ IDEA</a></li>
+<li><a href="https://www.jetbrains.com/webstorm/" target="_blank" rel="external">WebStorm</a></li>
+<li><a href="http://www.sublimetext.com/" target="_blank" rel="external">Sublime Text</a></li>
+<li><a href="https://atom.io/" target="_blank" rel="external">Atom</a></li>
+<li><a href="https://code.visualstudio.com" target="_blank" rel="external">Visual Studio Code</a></li>
+</ul>
+<p>OK，下面开始撕逼，每个群里和论坛里都有旷日持久的编辑器大战，框架大战。其实最终的结论都是一个，<strong>适合自己的才是最好的</strong>，所以我说说我现在选择编辑器的几个因素：</p>
+<ul>
+<li>尚未入职，电脑是Windows</li>
+<li>后端是Java，使用Velocity模板引擎</li>
+<li>前后端分离，且并行做项目，需要打开多个项目文件</li>
+</ul>
+<p>首先，以上5款编辑器都用了个遍，先说IDEA，好处是IDEA UL版支持Velocity语法，缺点是好多都是针对Java的工具和插件，很多功能并不会用到，总感觉这么大我却用不到对我很不友好；WebStorm，不支持Velocity语法高亮，毕竟是IDE很多很多高效的插件。然而Jet家的这两款IDE由于占内存太大，并且不能打开多个项目而最终否定掉，index的时候也极慢，虽然我的内存有16GB，处理器是I7；Atom，这些编辑器里我最喜欢的就是Atom，GitHub出品，UI风格，基于Node.js编写，强大的插件生态等等等，然而他在Win上是在是不给力啊，烂泥扶不上墙啊，老特么崩溃，老特么卡死，敲两个字就卡那儿半天，卸了装卸了装好多次了，虐我千百遍，最终还是要抛弃你，等Atom稳定了或者换到Mac上再用吧；vs code，微软出品，vs团队开发，也是基于node，相当于封装了一下atom，然而强大的开发团队在优化上比atom好太多，不能加载多个Project文件被瞬间枪毙，一些快捷键风格也不是很统一，延续了vs的风格，记了这么多快捷键好累。</p>
+<p>其实一入坑前端的时候就是Sublime，还特地去慕课上学了Petter的《快乐的Sublime编辑器》，然而后来为了追求时尚，心态浮躁，各种编辑器尝试来装X，喏，最后还得回归本源，支持veolicity，多项目文件，丰富的插件，熟悉的快捷键，唯一担心的是怕他以后的更新幅度慢了，开发者都转去其他编辑器。</p>
+<h2 id="2-let’s-Sublime"><a href="#2-let’s-Sublime" class="headerlink" title="2. let’s Sublime"></a>2. let’s Sublime</h2><h3 id="2-1-下载"><a href="#2-1-下载" class="headerlink" title="2.1 下载"></a>2.1 下载</h3><p>链接在这儿 <a href="http://www.sublimetext.com/" target="_blank" rel="external">Sublime Text</a></p>
+<h3 id="2-2-破解"><a href="#2-2-破解" class="headerlink" title="2.2 破解"></a>2.2 破解</h3><p>禁忌话题，你懂得，如果没有注册的话保存五次就会弹出提示框，很烦，去网上搜Lisence，一堆一堆的</p>
+<h3 id="2-3-Package-Control"><a href="#2-3-Package-Control" class="headerlink" title="2.3 Package Control"></a>2.3 Package Control</h3><p>如果要使用Sublime Text那么肯定要安装插件，如果要安装插件那么一定要安装<a href="https://packagecontrol.io/installation" target="_blank" rel="external">Package Control</a>，如果是ST3那么复制以下代码进控制台(<code>ctrl + ~</code>)，回车运行</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib.request,os,hashlib; h = <span class="string">'df21e130d211cfc94d9b0905775a7c0f'</span> + <span class="string">'1e3d39e33b79698005270310898eea76'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); <span class="keyword">by</span> = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.<span class="built_in">replace</span>(<span class="string">' '</span>, <span class="string">'%20'</span>)).<span class="built_in">read</span>(); dh = hashlib.sha256(<span class="keyword">by</span>).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="built_in">open</span>(os.path.join( ipp, pf), <span class="string">'wb'</span> ).<span class="built_in">write</span>(<span class="keyword">by</span>)</div></pre></td></tr></table></figure>
+<p>然后按<code>ctrl + shift + p</code>进入Package Control输入<code>install package</code>即可搜索并安装插件</p>
+<h2 id="3-DIY"><a href="#3-DIY" class="headerlink" title="3. DIY"></a>3. DIY</h2><p>拿来一款编辑器，首先要调整成自己喜欢的姿态，包括一堆插件和配置项</p>
+<h3 id="3-1-字体"><a href="#3-1-字体" class="headerlink" title="3.1 字体"></a>3.1 字体</h3><p>先改字体和字号，写程序就要用等宽字体，很多人推荐<code>Source Code Pro</code> 号称写程序专用，然而我喜欢<code>Consolas</code>更多一点，然后字号调整成14，有个什么说法忘记了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"font_face"</span>: <span class="string">"Consolas"</span>,</div><div class="line"><span class="string">"font_size"</span>: <span class="number">14</span>,</div></pre></td></tr></table></figure>
+<h3 id="3-2-转换UTF8-ConvertToUTF8"><a href="#3-2-转换UTF8-ConvertToUTF8" class="headerlink" title="3.2 转换UTF8 - ConvertToUTF8"></a>3.2 转换UTF8 - ConvertToUTF8</h3><p>将某些中文会出现乱码的编码格式转换为UTF-8，安装插件<code>ConvertToUTF8</code></p>
+<h3 id="3-3-显示空格-Bracket-Highlighter"><a href="#3-3-显示空格-Bracket-Highlighter" class="headerlink" title="3.3 显示空格 - Bracket Highlighter"></a>3.3 显示空格 - Bracket Highlighter</h3><p>有代码洁癖，我喜欢把所有空格显示出来，通过编辑器配置和安装高亮多余空格插件<code>Bracket Highlighter</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"draw_white_space"</span>: <span class="string">"all"</span>,</div></pre></td></tr></table></figure>
+<p>将tab转换为4个空格</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">"tab_size":</span> <span class="number">4</span><span class="string">,</span></div><div class="line"><span class="attr">"translate_tabs_to_spaces":</span> <span class="literal">true</span></div></pre></td></tr></table></figure>
+<h3 id="3-4-括号匹配-Trailing-Spaces"><a href="#3-4-括号匹配-Trailing-Spaces" class="headerlink" title="3.4 括号匹配 - Trailing Spaces"></a>3.4 括号匹配 - Trailing Spaces</h3><p>在选择前置括号时，自动匹配后置括号，安装插件<code>Trailing Spaces</code></p>
+<h3 id="3-5-增强sidebar-SideBarEnhancements"><a href="#3-5-增强sidebar-SideBarEnhancements" class="headerlink" title="3.5 增强sidebar - SideBarEnhancements"></a>3.5 增强sidebar - SideBarEnhancements</h3><p>为了让Side Bar更牛逼，安装插件<code>SideBarEnhancements</code></p>
+<h3 id="3-6-前端利器-Emmet"><a href="#3-6-前端利器-Emmet" class="headerlink" title="3.6 前端利器 - Emmet"></a>3.6 前端利器 - Emmet</h3><p>前端必备<code>Emmet</code></p>
+<h3 id="3-7-Markdown预览-OmniMarkupPreviewer"><a href="#3-7-Markdown预览-OmniMarkupPreviewer" class="headerlink" title="3.7 Markdown预览 - OmniMarkupPreviewer"></a>3.7 Markdown预览 - OmniMarkupPreviewer</h3><p>预览Markdown<code>OmniMarkupPreviewer</code>，如果遇到404问题，参见stackoverflow上这篇<a href="http://stackoverflow.com/questions/35798823/omnimarkuppreviewer-404" target="_blank" rel="external">帖子</a>，需要在<code>Sublime Text &gt; Preferences &gt; Package Settings &gt; OmniMarkupPreviewer &gt; Settings - User</code>中加入如下代码：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"renderer_options-MarkdownRenderer"</span>: &#123;</div><div class="line">        <span class="attr">"extensions"</span>: [<span class="string">"tables"</span>, <span class="string">"fenced_code"</span>, <span class="string">"codehilite"</span>]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用快捷键<code>ctrl+alt+o</code>预览</p>
+<h3 id="3-8-颜色选择-Color-Picker"><a href="#3-8-颜色选择-Color-Picker" class="headerlink" title="3.8 颜色选择 - Color Picker"></a>3.8 颜色选择 - Color Picker</h3><p>写CSS写的多的时候要使用颜色拾色器方便开发<code>Color Picker</code>，使用快捷键<code>ctrl+shift+c</code>打开，若遇到快捷键不生效，那么有可能是因为安装了ConvertToUTF8有快捷键冲突了，打开<code>Sublime Text --&gt; Preferences --&gt; Browse Packages</code>，找到ConvertToUTF8文件夹并进入，找到对应操作系统的Default.sublime-keymap文件，直接删掉快捷键绑定</p>
+<h2 id="4-My-Options"><a href="#4-My-Options" class="headerlink" title="4. My Options"></a>4. My Options</h2><p>Packages:</p>
+<ul>
+<li>Bracket Highlighter</li>
+<li>ConvertToUTF8</li>
+<li>Trailing Spaces</li>
+<li>Emmet</li>
+<li>Markdown Preview</li>
+<li>SideBarEnhancement</li>
+<li>HTML/CSS/JS Prettey</li>
+</ul>
+<p>Setting:<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"draw_white_space"</span>: <span class="string">"all"</span>,</div><div class="line">    <span class="attr">"disable_pyv8_update"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"font_face"</span>: <span class="string">"Consolas"</span>,</div><div class="line">    <span class="attr">"font_size"</span>: <span class="number">14</span>,</div><div class="line">    <span class="attr">"ignored_packages"</span>:</div><div class="line">    [</div><div class="line">        <span class="string">"Vintage"</span></div><div class="line">    ],</div><div class="line">    <span class="attr">"tab_size"</span>: <span class="number">4</span>,</div><div class="line">    <span class="attr">"color_scheme"</span>: <span class="string">"Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme"</span>,</div><div class="line">    <span class="attr">"theme"</span>: <span class="string">"Material-Theme-Darker.sublime-theme"</span>,</div><div class="line">    <span class="attr">"translate_tabs_to_spaces"</span>: <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechatpay.jpg" alt="景初 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay.jpg" alt="景初 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tech/" rel="tag">#tech</a>
+          
+            <a href="/tags/editor/" rel="tag">#editor</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/31/浅谈script标签的defer和async/" rel="next" title="浅谈script标签的defer和async">
+                <i class="fa fa-chevron-left"></i> 浅谈script标签的defer和async
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/10/HTML中空白字符的奥义/" rel="prev" title="HTML中空白字符的奥义">
+                HTML中空白字符的奥义 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/27/Sublime折腾记/"
+     data-title="Sublime折腾记"
+     data-content=""
+     data-url="ifibercc.com/2016/08/27/Sublime折腾记/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/27/Sublime折腾记/"
+           data-title="Sublime折腾记" data-url="ifibercc.com/2016/08/27/Sublime折腾记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oio5hqcfg.bkt.clouddn.com/avatar.jpg"
+               alt="景初" />
+          <p class="site-author-name" itemprop="name">景初</p>
+          <p class="site-description motion-element" itemprop="description">Keep surprising people.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ifibercc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ifibercc" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:ifibercc@gmail.com" target="_blank" title="Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  Mail
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.pifupai.com/" title="lol皮肤" target="_blank">lol皮肤</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-why-Sublime"><span class="nav-text">1. why Sublime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-let’s-Sublime"><span class="nav-text">2. let’s Sublime</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-下载"><span class="nav-text">2.1 下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-破解"><span class="nav-text">2.2 破解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Package-Control"><span class="nav-text">2.3 Package Control</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-DIY"><span class="nav-text">3. DIY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-字体"><span class="nav-text">3.1 字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-转换UTF8-ConvertToUTF8"><span class="nav-text">3.2 转换UTF8 - ConvertToUTF8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-显示空格-Bracket-Highlighter"><span class="nav-text">3.3 显示空格 - Bracket Highlighter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-括号匹配-Trailing-Spaces"><span class="nav-text">3.4 括号匹配 - Trailing Spaces</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-增强sidebar-SideBarEnhancements"><span class="nav-text">3.5 增强sidebar - SideBarEnhancements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-前端利器-Emmet"><span class="nav-text">3.6 前端利器 - Emmet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-Markdown预览-OmniMarkupPreviewer"><span class="nav-text">3.7 Markdown预览 - OmniMarkupPreviewer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-颜色选择-Color-Picker"><span class="nav-text">3.8 颜色选择 - Color Picker</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-My-Options"><span class="nav-text">4. My Options</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">景初</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/fastclick/1.0.0/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.js"></script>
+
+  
+  <script type="text/javascript" src="http://cdn.staticfile.org/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="http://cdn.staticfile.org/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="http://cdn.staticfile.org/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ifibercc"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="http://cdn.staticfile.org/UAParser.js/0.7.10/ua-parser.min.js"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

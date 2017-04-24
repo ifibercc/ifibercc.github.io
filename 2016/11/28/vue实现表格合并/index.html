@@ -1,0 +1,734 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="http://cdn.staticfile.org/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,vue," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="总总" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="1. 场景这两天一个项目，属于子需求吧，就是要做一个页面放个简单的banner下面是张大表格用来显示数据项，纯粹为了view层操作方便，就用了vue做渲染。然而，对方最近又提出了一个恶心需求，需要相邻的相同值的行数据项进行单元格合并，这就醉了。 由于使用的是vue，想到MVVM是要用数据驱动的思想，所以考虑在Model做手脚，而不是渲染出数据来后做DOM操作，当然基本的CSS还是要有的。因此这个方">
+<meta name="keywords" content="JavaScript,vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue实现表格合并">
+<meta property="og:url" content="ifibercc.com/2016/11/28/vue实现表格合并/index.html">
+<meta property="og:site_name" content="总总">
+<meta property="og:description" content="1. 场景这两天一个项目，属于子需求吧，就是要做一个页面放个简单的banner下面是张大表格用来显示数据项，纯粹为了view层操作方便，就用了vue做渲染。然而，对方最近又提出了一个恶心需求，需要相邻的相同值的行数据项进行单元格合并，这就醉了。 由于使用的是vue，想到MVVM是要用数据驱动的思想，所以考虑在Model做手脚，而不是渲染出数据来后做DOM操作，当然基本的CSS还是要有的。因此这个方">
+<meta property="og:image" content="/uploads/img/007-combinecell.jpg">
+<meta property="og:updated_time" content="2017-04-24T09:24:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue实现表格合并">
+<meta name="twitter:description" content="1. 场景这两天一个项目，属于子需求吧，就是要做一个页面放个简单的banner下面是张大表格用来显示数据项，纯粹为了view层操作方便，就用了vue做渲染。然而，对方最近又提出了一个恶心需求，需要相邻的相同值的行数据项进行单元格合并，这就醉了。 由于使用的是vue，想到MVVM是要用数据驱动的思想，所以考虑在Model做手脚，而不是渲染出数据来后做DOM操作，当然基本的CSS还是要有的。因此这个方">
+<meta name="twitter:image" content="/uploads/img/007-combinecell.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6252950364480341000,
+      author: '老大'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="ifibercc.com/2016/11/28/vue实现表格合并/"/>
+
+  <title> vue实现表格合并 | 总总 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">总总</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Keep surprising people.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                vue实现表格合并
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-28T18:00:58+08:00" content="2016-11-28">
+              2016-11-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/28/vue实现表格合并/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/vue实现表格合并/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-场景"><a href="#1-场景" class="headerlink" title="1. 场景"></a>1. 场景</h2><p>这两天一个项目，属于子需求吧，就是要做一个页面放个简单的banner下面是张大表格用来显示数据项，纯粹为了view层操作方便，就用了vue做渲染。<br>然而，对方最近又提出了一个恶心需求，需要<strong>相邻的相同值的行数据项进行单元格合并</strong>，这就醉了。</p>
+<p>由于使用的是vue，想到MVVM是要用数据驱动的思想，所以考虑在Model做手脚，而不是渲染出数据来后做DOM操作，当然基本的CSS还是要有的。因此这个方法对所有<br>数据驱动的框架都有效，比如说Angular和React。最后的实现效果是这样的：<br><img src="/uploads/img/007-combinecell.jpg" alt="both"></p>
+<h2 id="2-思路"><a href="#2-思路" class="headerlink" title="2. 思路"></a>2. 思路</h2><p>原本的正常表格的代码长这样：<br><figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"3%"</span>&gt;</span><span class="template-variable">&#123;&#123; $index + 1 &#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"15%"</span>&gt;</span><span class="template-variable">&#123;&#123;item.bsO_Name&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"8%"</span> <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;'overtime': overtime(item.GathDt)&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.GathDt | time&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>&gt;</span><span class="template-variable">&#123;&#123;item.F1&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>&gt;</span><span class="template-variable">&#123;&#123;item.F2&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>&gt;</span><span class="template-variable">&#123;&#123;item.F4&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>&gt;</span><span class="template-variable">&#123;&#123;item.F3&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>&gt;</span><span class="template-variable">&#123;&#123;item.F5&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>&gt;</span><span class="template-variable">&#123;&#123;item.F6&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>&gt;</span><span class="template-variable">&#123;&#123;item.F7&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>&gt;</span><span class="template-variable">&#123;&#123;item.F8&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>&gt;</span><span class="template-variable">&#123;&#123;item.F9&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>&gt;</span><span class="template-variable">&#123;&#123;item.F10&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>先拿正常的表格来做测试，原生的<code>&lt;td&gt;</code>标签就有<code>rowspan</code>属性支持单元格行合并，属性值指的是向下合并多少行，其实就相当于在本行中向下又添加了几个单元格。<br>因为，如果接下来的一行还会渲染的话就会被挤下去，因此，下面被合并的单元格要隐藏掉，通过<code>display: none;</code>css控制即可。</p>
+<p>因此，每个<code>&lt;td&gt;</code>标签需要带有两个属性值，<code>rowspan</code>和<code>display</code>来控制每一个单元格的合并行数和是否显示。代码变成这样了<br><figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"3%"</span>&gt;</span><span class="template-variable">&#123;&#123; $index + 1 &#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">:rowspan</span>=<span class="string">"item.bsO_Namespan"</span> <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;hidden: item.bsO_Namedis&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.bsO_Name&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"8%"</span>  <span class="attr">:rowspan</span>=<span class="string">"item.GathDtspan"</span>   <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;hidden: item.GathDtdis&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">:class</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;overtime: overtime(item.GathDt)&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.GathDt | time&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>  <span class="attr">:rowspan</span>=<span class="string">"item.F1span"</span>       <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;hidden: item.F1dis&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.F1&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>  <span class="attr">:rowspan</span>=<span class="string">"item.F2span"</span>       <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;hidden: item.F2dis&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.F2&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>  <span class="attr">:rowspan</span>=<span class="string">"item.F3span"</span>       <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;hidden: item.F3dis&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.F3&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>  <span class="attr">:rowspan</span>=<span class="string">"item.F4span"</span>       <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;hidden: item.F4dis&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.F4&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>  <span class="attr">:rowspan</span>=<span class="string">"item.F5span"</span>       <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;hidden: item.F5dis&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.F5&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"10%"</span> <span class="attr">:rowspan</span>=<span class="string">"item.F6span"</span>       <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;hidden: item.F6dis&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.F6&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"8%"</span>  <span class="attr">:rowspan</span>=<span class="string">"item.F7span"</span>       <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;hidden: item.F7dis&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">:class</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;overtime: overtime(item.F7)&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.F7 | time&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>  <span class="attr">:rowspan</span>=<span class="string">"item.F8span"</span>       <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;hidden: item.F8dis&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.F8&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>  <span class="attr">:rowspan</span>=<span class="string">"item.F9span"</span>       <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;hidden: item.F9dis&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.F9&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>  <span class="attr">:rowspan</span>=<span class="string">"item.F10span"</span>      <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;hidden: item.F10dis&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.F10&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"5%"</span>  <span class="attr">:rowspan</span>=<span class="string">"item.F11span"</span>      <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;hidden: item.F11dis&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.F11&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>其中，这两个属性有一些特征：</p>
+<ul>
+<li>要显示的单元格rowspan为&gt;1的值，记录接下来的行数</li>
+<li>要显示的单元格display为true</li>
+<li>接下来不显示的单元格rowspan为1且display为false</li>
+<li>只有一行数据的单元格rowspan为1且display为true</li>
+</ul>
+<p>实际上就是设计一个算法，对于输入的表格数组，每个数据项添加两个属性，rowspan和display，并且计算出<strong>rowspan的值为<br>本列中以下相同值的行数</strong>，以及<strong>依据rowspan的值计算display的值是否显示</strong>，最后将此改变后的数组输出。</p>
+<h2 id="3-show-me-code"><a href="#3-show-me-code" class="headerlink" title="3. show me code"></a>3. show me code</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">combineCell</span><span class="params">(list)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (field in <span class="keyword">list</span>[<span class="number">0</span>]) &#123;</div><div class="line">        <span class="keyword">var</span> k = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (k &lt; <span class="keyword">list</span>.length) &#123;</div><div class="line">            <span class="keyword">list</span>[k][field + <span class="string">'span'</span>] = <span class="number">1</span>;</div><div class="line">            <span class="keyword">list</span>[k][field + <span class="string">'dis'</span>] = <span class="keyword">false</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = k + <span class="number">1</span>; i &lt;= <span class="keyword">list</span>.length - <span class="number">1</span>; i++) &#123;</div><div class="line">                <span class="keyword">if</span> (<span class="keyword">list</span>[k][field] == <span class="keyword">list</span>[i][field] &amp;&amp; <span class="keyword">list</span>[k][field] != <span class="string">''</span>) &#123;</div><div class="line">                    <span class="keyword">list</span>[k][field + <span class="string">'span'</span>]++;</div><div class="line">                    <span class="keyword">list</span>[k][field + <span class="string">'dis'</span>] = <span class="keyword">false</span>;</div><div class="line">                    <span class="keyword">list</span>[i][field + <span class="string">'span'</span>] = <span class="number">1</span>;</div><div class="line">                    <span class="keyword">list</span>[i][field + <span class="string">'dis'</span>] = <span class="keyword">true</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            k = i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">list</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>代码实际上很短很简单，主要借助的是kmp的思想，定义一个指针k，开始指向第一个值，然后向下比较，以此对rowspan和display设置，<br>若遇到不相同的值则判断为跳出，进行下一个循环，通知指针k加上这个过程中运算的行数，进行跳转，然后比较下一个单元格的值，和kmp的指针跳转判断相同字符串一样的原理。</p>
+<p>通过<code>combineCell()</code>这个函数就可以将网络请求回来的数据进行过滤，附加上相应的值后再对vue监视的数组进行赋值操作就可以了。<br>实际上此方法不仅适用于vue，数据驱动的框架都可以，包括Angular和React，要想实现表格合并，对请求回来的值过滤一下就OK。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechatpay.jpg" alt="景初 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay.jpg" alt="景初 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/vue/" rel="tag">#vue</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/31/浅谈script标签的defer和async/" rel="prev" title="浅谈script标签的defer和async">
+                浅谈script标签的defer和async <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/11/28/vue实现表格合并/"
+     data-title="vue实现表格合并"
+     data-content=""
+     data-url="ifibercc.com/2016/11/28/vue实现表格合并/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/28/vue实现表格合并/"
+           data-title="vue实现表格合并" data-url="ifibercc.com/2016/11/28/vue实现表格合并/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oio5hqcfg.bkt.clouddn.com/avatar.jpg"
+               alt="景初" />
+          <p class="site-author-name" itemprop="name">景初</p>
+          <p class="site-description motion-element" itemprop="description">Keep surprising people.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ifibercc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ifibercc" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:ifibercc@gmail.com" target="_blank" title="Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  Mail
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.pifupai.com/" title="lol皮肤" target="_blank">lol皮肤</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-场景"><span class="nav-text">1. 场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-思路"><span class="nav-text">2. 思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-show-me-code"><span class="nav-text">3. show me code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-总结"><span class="nav-text">4. 总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">景初</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/fastclick/1.0.0/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.js"></script>
+
+  
+  <script type="text/javascript" src="http://cdn.staticfile.org/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="http://cdn.staticfile.org/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="http://cdn.staticfile.org/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ifibercc"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="http://cdn.staticfile.org/UAParser.js/0.7.10/ua-parser.min.js"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
