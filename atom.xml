@@ -4,9 +4,9 @@
   <subtitle>Keep surprising people.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="ifibercc.com/"/>
+  <link href="www.foom.site/"/>
   <updated>2017-06-27T08:17:23.000Z</updated>
-  <id>ifibercc.com/</id>
+  <id>www.foom.site/</id>
   
   <author>
     <name>景初</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>阿里云搭建 nginx</title>
-    <link href="ifibercc.com/2017/06/27/%E9%98%BF%E9%87%8C%E4%BA%91%E6%90%AD%E5%BB%BA-nginx/"/>
-    <id>ifibercc.com/2017/06/27/阿里云搭建-nginx/</id>
+    <link href="www.foom.site/2017/06/27/%E9%98%BF%E9%87%8C%E4%BA%91%E6%90%AD%E5%BB%BA-nginx/"/>
+    <id>www.foom.site/2017/06/27/阿里云搭建-nginx/</id>
     <published>2017-06-27T07:36:55.000Z</published>
     <updated>2017-06-27T08:17:23.000Z</updated>
     
@@ -48,16 +48,16 @@
     </summary>
     
     
-      <category term="tech" scheme="ifibercc.com/tags/tech/"/>
+      <category term="tech" scheme="www.foom.site/tags/tech/"/>
     
-      <category term="PE" scheme="ifibercc.com/tags/PE/"/>
+      <category term="PE" scheme="www.foom.site/tags/PE/"/>
     
   </entry>
   
   <entry>
     <title>vue实现表格合并</title>
-    <link href="ifibercc.com/2016/11/28/vue%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E5%90%88%E5%B9%B6/"/>
-    <id>ifibercc.com/2016/11/28/vue实现表格合并/</id>
+    <link href="www.foom.site/2016/11/28/vue%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E5%90%88%E5%B9%B6/"/>
+    <id>www.foom.site/2016/11/28/vue实现表格合并/</id>
     <published>2016-11-28T10:00:58.000Z</published>
     <updated>2017-04-24T09:24:54.000Z</updated>
     
@@ -86,16 +86,16 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="ifibercc.com/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="www.foom.site/tags/JavaScript/"/>
     
-      <category term="vue" scheme="ifibercc.com/tags/vue/"/>
+      <category term="vue" scheme="www.foom.site/tags/vue/"/>
     
   </entry>
   
   <entry>
     <title>浅谈script标签的defer和async</title>
-    <link href="ifibercc.com/2016/08/31/%E6%B5%85%E8%B0%88script%E6%A0%87%E7%AD%BE%E7%9A%84defer%E5%92%8Casync/"/>
-    <id>ifibercc.com/2016/08/31/浅谈script标签的defer和async/</id>
+    <link href="www.foom.site/2016/08/31/%E6%B5%85%E8%B0%88script%E6%A0%87%E7%AD%BE%E7%9A%84defer%E5%92%8Casync/"/>
+    <id>www.foom.site/2016/08/31/浅谈script标签的defer和async/</id>
     <published>2016-08-30T16:29:45.000Z</published>
     <updated>2017-04-24T09:24:54.000Z</updated>
     
@@ -161,16 +161,16 @@
     </summary>
     
     
-      <category term="tech" scheme="ifibercc.com/tags/tech/"/>
+      <category term="tech" scheme="www.foom.site/tags/tech/"/>
     
-      <category term="JavaScript" scheme="ifibercc.com/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="www.foom.site/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>Sublime折腾记</title>
-    <link href="ifibercc.com/2016/08/27/Sublime%E6%8A%98%E8%85%BE%E8%AE%B0/"/>
-    <id>ifibercc.com/2016/08/27/Sublime折腾记/</id>
+    <link href="www.foom.site/2016/08/27/Sublime%E6%8A%98%E8%85%BE%E8%AE%B0/"/>
+    <id>www.foom.site/2016/08/27/Sublime折腾记/</id>
     <published>2016-08-27T03:42:01.000Z</published>
     <updated>2017-04-24T09:24:54.000Z</updated>
     
@@ -230,16 +230,16 @@
     </summary>
     
     
-      <category term="tech" scheme="ifibercc.com/tags/tech/"/>
+      <category term="tech" scheme="www.foom.site/tags/tech/"/>
     
-      <category term="editor" scheme="ifibercc.com/tags/editor/"/>
+      <category term="editor" scheme="www.foom.site/tags/editor/"/>
     
   </entry>
   
   <entry>
     <title>HTML中空白字符的奥义</title>
-    <link href="ifibercc.com/2016/08/10/HTML%E4%B8%AD%E7%A9%BA%E7%99%BD%E5%AD%97%E7%AC%A6%E7%9A%84%E5%A5%A5%E4%B9%89/"/>
-    <id>ifibercc.com/2016/08/10/HTML中空白字符的奥义/</id>
+    <link href="www.foom.site/2016/08/10/HTML%E4%B8%AD%E7%A9%BA%E7%99%BD%E5%AD%97%E7%AC%A6%E7%9A%84%E5%A5%A5%E4%B9%89/"/>
+    <id>www.foom.site/2016/08/10/HTML中空白字符的奥义/</id>
     <published>2016-08-10T01:36:53.000Z</published>
     <updated>2017-04-24T09:24:54.000Z</updated>
     
@@ -302,16 +302,16 @@
     </summary>
     
     
-      <category term="tech" scheme="ifibercc.com/tags/tech/"/>
+      <category term="tech" scheme="www.foom.site/tags/tech/"/>
     
-      <category term="html" scheme="ifibercc.com/tags/html/"/>
+      <category term="html" scheme="www.foom.site/tags/html/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript中的变量声明提升问题 - Hoisting</title>
-    <link href="ifibercc.com/2016/08/09/JavaScript%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E9%97%AE%E9%A2%98-Hoisting/"/>
-    <id>ifibercc.com/2016/08/09/JavaScript中的变量声明问题-Hoisting/</id>
+    <link href="www.foom.site/2016/08/09/JavaScript%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E9%97%AE%E9%A2%98-Hoisting/"/>
+    <id>www.foom.site/2016/08/09/JavaScript中的变量声明问题-Hoisting/</id>
     <published>2016-08-09T09:23:11.000Z</published>
     <updated>2017-04-24T09:24:54.000Z</updated>
     
@@ -342,16 +342,16 @@
     </summary>
     
     
-      <category term="tech" scheme="ifibercc.com/tags/tech/"/>
+      <category term="tech" scheme="www.foom.site/tags/tech/"/>
     
-      <category term="JavaScript" scheme="ifibercc.com/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="www.foom.site/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript中的数据类型及其检测</title>
-    <link href="ifibercc.com/2016/08/09/JavaScript%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%85%B6%E6%A3%80%E6%B5%8B/"/>
-    <id>ifibercc.com/2016/08/09/JavaScript中的数据类型及其检测/</id>
+    <link href="www.foom.site/2016/08/09/JavaScript%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%85%B6%E6%A3%80%E6%B5%8B/"/>
+    <id>www.foom.site/2016/08/09/JavaScript中的数据类型及其检测/</id>
     <published>2016-08-09T09:12:26.000Z</published>
     <updated>2017-04-24T09:24:54.000Z</updated>
     
@@ -403,16 +403,16 @@
     </summary>
     
     
-      <category term="tech" scheme="ifibercc.com/tags/tech/"/>
+      <category term="tech" scheme="www.foom.site/tags/tech/"/>
     
-      <category term="JavaScript" scheme="ifibercc.com/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="www.foom.site/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>序</title>
-    <link href="ifibercc.com/2016/02/19/%E5%BA%8F/"/>
-    <id>ifibercc.com/2016/02/19/序/</id>
+    <link href="www.foom.site/2016/02/19/%E5%BA%8F/"/>
+    <id>www.foom.site/2016/02/19/序/</id>
     <published>2016-02-19T15:16:08.000Z</published>
     <updated>2017-04-24T09:24:54.000Z</updated>
     
@@ -442,7 +442,7 @@
     </summary>
     
     
-      <category term="life" scheme="ifibercc.com/tags/life/"/>
+      <category term="life" scheme="www.foom.site/tags/life/"/>
     
   </entry>
   
