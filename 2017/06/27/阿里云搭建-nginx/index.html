@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="tech,JavaScript," />
+  <meta name="keywords" content="tech,PE," />
 
 
 
@@ -90,17 +90,20 @@
 
 
 
-<meta name="description" content="1. 变量声明提升 hoisting  英[‘hɔɪstɪŋ]  美[‘hɔɪstɪŋ]n.    起重，提升v.    把…吊起，升起( hoist的现在分词 )  先来看一个栗子12345678var cc = &apos;hello&apos;;function foo()&amp;#123;    console.log(cc);    var cc = &apos;world&apos;;    console.log(cc);&amp;#1">
-<meta name="keywords" content="tech,JavaScript">
+<meta name="description" content="1. 前言为了开发微信小程序, 要买个 CA 证书, 看到阿里云有免费的, 就给申请, 就在此时又看到了阿里云的 ECS 有大优惠, 1-1-1的配置一年就要300+, 之前300+只能买三个月, 就顺道给买了, 简直是捆绑消费啊, 然而身为 FE 的我在配置阿里云服务器以及做 PE 相关的东西时显得捉襟见肘, 遇到了很多问题, 所以特此记录下来. 2. ssh买了服务器当然要先登录啦, 通过我们">
+<meta name="keywords" content="tech,PE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript中的变量声明提升问题 - Hoisting">
-<meta property="og:url" content="ifibercc.com/2016/08/09/JavaScript中的变量声明问题-Hoisting/index.html">
+<meta property="og:title" content="阿里云搭建 nginx">
+<meta property="og:url" content="ifibercc.com/2017/06/27/阿里云搭建-nginx/index.html">
 <meta property="og:site_name" content="总总">
-<meta property="og:description" content="1. 变量声明提升 hoisting  英[‘hɔɪstɪŋ]  美[‘hɔɪstɪŋ]n.    起重，提升v.    把…吊起，升起( hoist的现在分词 )  先来看一个栗子12345678var cc = &apos;hello&apos;;function foo()&amp;#123;    console.log(cc);    var cc = &apos;world&apos;;    console.log(cc);&amp;#1">
-<meta property="og:updated_time" content="2017-04-24T09:24:54.000Z">
+<meta property="og:description" content="1. 前言为了开发微信小程序, 要买个 CA 证书, 看到阿里云有免费的, 就给申请, 就在此时又看到了阿里云的 ECS 有大优惠, 1-1-1的配置一年就要300+, 之前300+只能买三个月, 就顺道给买了, 简直是捆绑消费啊, 然而身为 FE 的我在配置阿里云服务器以及做 PE 相关的东西时显得捉襟见肘, 遇到了很多问题, 所以特此记录下来. 2. ssh买了服务器当然要先登录啦, 通过我们">
+<meta property="og:image" content="/uploads/img/008%20-%20aliyun-safe.png">
+<meta property="og:image" content="/uploads/img/009%20-%20aliyun-nginx-success.png">
+<meta property="og:updated_time" content="2017-06-27T08:17:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript中的变量声明提升问题 - Hoisting">
-<meta name="twitter:description" content="1. 变量声明提升 hoisting  英[‘hɔɪstɪŋ]  美[‘hɔɪstɪŋ]n.    起重，提升v.    把…吊起，升起( hoist的现在分词 )  先来看一个栗子12345678var cc = &apos;hello&apos;;function foo()&amp;#123;    console.log(cc);    var cc = &apos;world&apos;;    console.log(cc);&amp;#1">
+<meta name="twitter:title" content="阿里云搭建 nginx">
+<meta name="twitter:description" content="1. 前言为了开发微信小程序, 要买个 CA 证书, 看到阿里云有免费的, 就给申请, 就在此时又看到了阿里云的 ECS 有大优惠, 1-1-1的配置一年就要300+, 之前300+只能买三个月, 就顺道给买了, 简直是捆绑消费啊, 然而身为 FE 的我在配置阿里云服务器以及做 PE 相关的东西时显得捉襟见肘, 遇到了很多问题, 所以特此记录下来. 2. ssh买了服务器当然要先登录啦, 通过我们">
+<meta name="twitter:image" content="/uploads/img/008%20-%20aliyun-safe.png">
 
 
 
@@ -121,9 +124,9 @@
 
 
 
-  <link rel="canonical" href="ifibercc.com/2016/08/09/JavaScript中的变量声明问题-Hoisting/"/>
+  <link rel="canonical" href="ifibercc.com/2017/06/27/阿里云搭建-nginx/"/>
 
-  <title> JavaScript中的变量声明提升问题 - Hoisting | 总总 </title>
+  <title> 阿里云搭建 nginx | 总总 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +256,7 @@
             
             
               
-                JavaScript中的变量声明提升问题 - Hoisting
+                阿里云搭建 nginx
               
             
           </h1>
@@ -265,8 +268,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-09T17:23:11+08:00" content="2016-08-09">
-              2016-08-09
+            <time itemprop="dateCreated" datetime="2017-06-27T15:36:55+08:00" content="2017-06-27">
+              2017-06-27
             </time>
           </span>
 
@@ -276,8 +279,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/09/JavaScript中的变量声明问题-Hoisting/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/09/JavaScript中的变量声明问题-Hoisting/" itemprop="commentsCount"></span>
+                <a href="/2017/06/27/阿里云搭建-nginx/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/27/阿里云搭建-nginx/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,23 +308,23 @@
       
 
       
-        <h2 id="1-变量声明提升"><a href="#1-变量声明提升" class="headerlink" title="1. 变量声明提升"></a>1. 变量声明提升</h2><blockquote>
-<p>hoisting  英[‘hɔɪstɪŋ]  美[‘hɔɪstɪŋ]<br>n.    起重，提升<br>v.    把…吊起，升起( hoist的现在分词 )</p>
+        <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>为了开发微信小程序, 要买个 CA 证书, 看到阿里云有免费的, 就给申请, 就在此时又看到了阿里云的 ECS 有大优惠, 1-1-1的配置一年就要300+, 之前300+只能买三个月, 就顺道给买了, 简直是捆绑消费啊, 然而身为 FE 的我在配置阿里云服务器以及做 PE 相关的东西时显得捉襟见肘, 遇到了很多问题, 所以特此记录下来.</p>
+<h2 id="2-ssh"><a href="#2-ssh" class="headerlink" title="2. ssh"></a>2. ssh</h2><p>买了服务器当然要先登录啦, 通过我们的 SSH 客户端来<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">root</span>@<span class="keyword">123</span>.<span class="keyword">123</span>.<span class="keyword">123</span>.<span class="keyword">123</span> // 你的服务器公网地址</div></pre></td></tr></table></figure></p>
+<p>接下来会询问你关于 ssh key 的问题, yes 就好, 另外一种情况, 你在本地登录过此台服务器结果又重装了, 再登录时这个 ssh 密钥会发生变化, 需要去 <code>vi ~/.ssh/known_hosts</code>中你的服务器那行给删掉, dd 即可.</p>
+<h2 id="3-yum"><a href="#3-yum" class="headerlink" title="3. yum"></a>3. yum</h2><blockquote>
+<p>yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器。基於RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。yum提供了查找、安装、删除某一个、一组甚至全部软件包的命令，而且命令简洁而又好记。</p>
 </blockquote>
-<p>先来看一个栗子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cc = <span class="string">'hello'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(cc);</div><div class="line">    <span class="keyword">var</span> cc = <span class="string">'world'</span>;</div><div class="line">    <span class="built_in">console</span>.log(cc);</div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"><span class="built_in">console</span>.log(cc);</div></pre></td></tr></table></figure></p>
-<p>这里将会输出 undefined、’world’、’hello’<br>此处主要有两个知识点：</p>
-<ul>
-<li>作用域</li>
-<li>变量声明提升</li>
-</ul>
-<p>JavaScript是一门解释性语言，当代码在解释器（如Chrome的V8引擎）环境中执行时，会有一个预解析的过程，此时会将变量声明和函数声明提升至当前作用域的最前方，这个行为被称为声明提升（Hoisting）</p>
-<p>再来看上面的例子，此代码有两层作用域，全局作用域和函数foo作用域，而foo中的变量声明在预解析的过程中会被提升至函数作用域的前方，于是代码就会变成这样：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cc = <span class="string">'hello'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> cc;</div><div class="line">    <span class="built_in">console</span>.log(cc);</div><div class="line">    cc = <span class="string">'world'</span>;</div><div class="line">    <span class="built_in">console</span>.log(cc);</div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"><span class="built_in">console</span>.log(cc);</div></pre></td></tr></table></figure></p>
-<p>当执行到第一个log时，变量cc只是进行了声明，并未赋值，所以打印出的是<code>undefined</code></p>
-<h2 id="2-函数声明提升"><a href="#2-函数声明提升" class="headerlink" title="2. 函数声明提升"></a>2. 函数声明提升</h2><p>函数的声明有两种方式：函数声明和函数表达式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 函数声明</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 函数表达式</span></div><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>解析器在向执行环境中加载数据时，对函数声明和函数表达式并非一视同仁。解析器会率先读取函数声明，并使其在执行任何代码之前可用（可以访问）；至于函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解释执行。</p>
-</blockquote>
-<p>当然，也可以函数声明和函数表达式同时使用,如<code>var a = function b(){}</code>,其结果是只具有函数表达式的作用，b会被自动忽略，所以只会发生变量提升效果。</p>
+<h2 id="4-修改-yum-源"><a href="#4-修改-yum-源" class="headerlink" title="4. 修改 yum 源"></a>4. 修改 yum 源</h2><p>其实 yum 就是类似于 node 中 npm 的包或者依赖管理工具, 其实应该反过来类比更对, 毕竟npm 太年轻, 要知道我们用 npm 时会将源切换到国内的, 这里也是同样的道理. 国内有很多 yum 源, 我也不知道哪家好, 基于 npm 的惯例, 还是用<a href="http://mirrors.aliyun.com/help/centos" target="_blank" rel="external">阿里云</a>的吧.<br>我这里是 CentOS 7 版本</p>
+<h3 id="4-1-备份"><a href="#4-1-备份" class="headerlink" title="4.1 备份"></a>4.1 备份</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/CentOS-Base<span class="selector-class">.repo</span> /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/CentOS-Base<span class="selector-class">.repo</span><span class="selector-class">.backup</span></div></pre></td></tr></table></figure>
+<h3 id="4-2-下载新的CentOS-Base-repo-到-etc-yum-repos-d"><a href="#4-2-下载新的CentOS-Base-repo-到-etc-yum-repos-d" class="headerlink" title="4.2 下载新的CentOS-Base.repo 到/etc/yum.repos.d/"></a>4.2 下载新的CentOS-Base.repo 到/etc/yum.repos.d/</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget -O /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/CentOS-Base<span class="selector-class">.repo</span> http:<span class="comment">//mirrors.aliyun.com/repo/Centos-7.repo</span></div><div class="line">或者</div><div class="line">curl -o /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/CentOS-Base<span class="selector-class">.repo</span> http:<span class="comment">//mirrors.aliyun.com/repo/Centos-7.repo</span></div></pre></td></tr></table></figure>
+<h3 id="4-3-生成缓存"><a href="#4-3-生成缓存" class="headerlink" title="4.3 生成缓存"></a>4.3 生成缓存</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">yum makecache</span></div></pre></td></tr></table></figure>
+<h2 id="5-更新-yum-依赖"><a href="#5-更新-yum-依赖" class="headerlink" title="5. 更新 yum 依赖"></a>5. 更新 yum 依赖</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">yum -y update</span></div></pre></td></tr></table></figure>
+<h2 id="6-安装-nginx"><a href="#6-安装-nginx" class="headerlink" title="6. 安装 nginx"></a>6. 安装 nginx</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> nginx</div></pre></td></tr></table></figure>
+<h2 id="7-启动-nginx"><a href="#7-启动-nginx" class="headerlink" title="7. 启动 nginx"></a>7. 启动 nginx</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service nginx <span class="literal">start</span></div></pre></td></tr></table></figure>
+<h2 id="8-测试是否成功"><a href="#8-测试是否成功" class="headerlink" title="8. 测试是否成功"></a>8. 测试是否成功</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl <span class="string">http:</span><span class="comment">//127.0.0.1</span></div></pre></td></tr></table></figure>
+<p>如果有成功的返回则证明成功启动了 nginx 服务器  </p>
+<h2 id="9-安全策略"><a href="#9-安全策略" class="headerlink" title="9. 安全策略"></a>9. 安全策略</h2><p>但是, 这时从公网访问此服务器, 或者直接在本地 <code>curl http://47.xx.xx.xx</code> 则会发现链接超时, 这个地方坑了我很多天, 本来以为是防火墙的原因, 一直去查 iptables 等的配置, 实际上新的机器 iptables 并不会启用, 没有任何 ACL 来阻止我们的请求, 后来排查发现, 是阿里云有一个外部的总防火墙, 安全策略, 白名单里没有将80端口开放出来, 导致 nginx 的请求被阻止, 在这里进行配置<br><img src="/uploads/img/008 - aliyun-safe.png" alt="安全组"><br>点击’配置规则’, ‘快速创建规则’, 将80端口的规则添加进去就 ok 了, 这个时候再访问, 就可以看到成功的页面了<br><img src="/uploads/img/009 - aliyun-nginx-success.png" alt="success"></p>
+<p>DONE! 至此搭建完毕~</p>
 
       
     </div>
@@ -367,7 +370,7 @@
           
             <a href="/tags/tech/" rel="tag">#tech</a>
           
-            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+            <a href="/tags/PE/" rel="tag">#PE</a>
           
         </div>
       
@@ -376,17 +379,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/09/JavaScript中的数据类型及其检测/" rel="next" title="JavaScript中的数据类型及其检测">
-                <i class="fa fa-chevron-left"></i> JavaScript中的数据类型及其检测
+              <a href="/2016/11/28/vue实现表格合并/" rel="next" title="vue实现表格合并">
+                <i class="fa fa-chevron-left"></i> vue实现表格合并
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/10/HTML中空白字符的奥义/" rel="prev" title="HTML中空白字符的奥义">
-                HTML中空白字符的奥义 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -401,10 +400,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/08/09/JavaScript中的变量声明问题-Hoisting/"
-     data-title="JavaScript中的变量声明提升问题 - Hoisting"
+        <div class="ds-share flat" data-thread-key="2017/06/27/阿里云搭建-nginx/"
+     data-title="阿里云搭建 nginx"
      data-content=""
-     data-url="ifibercc.com/2016/08/09/JavaScript中的变量声明问题-Hoisting/">
+     data-url="ifibercc.com/2017/06/27/阿里云搭建-nginx/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -431,8 +430,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/09/JavaScript中的变量声明问题-Hoisting/"
-           data-title="JavaScript中的变量声明提升问题 - Hoisting" data-url="ifibercc.com/2016/08/09/JavaScript中的变量声明问题-Hoisting/">
+      <div class="ds-thread" data-thread-key="2017/06/27/阿里云搭建-nginx/"
+           data-title="阿里云搭建 nginx" data-url="ifibercc.com/2017/06/27/阿里云搭建-nginx/">
       </div>
     
   </div>
@@ -566,7 +565,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-变量声明提升"><span class="nav-text">1. 变量声明提升</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-函数声明提升"><span class="nav-text">2. 函数声明提升</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-前言"><span class="nav-text">1. 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ssh"><span class="nav-text">2. ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-yum"><span class="nav-text">3. yum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-修改-yum-源"><span class="nav-text">4. 修改 yum 源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-备份"><span class="nav-text">4.1 备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-下载新的CentOS-Base-repo-到-etc-yum-repos-d"><span class="nav-text">4.2 下载新的CentOS-Base.repo 到/etc/yum.repos.d/</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-生成缓存"><span class="nav-text">4.3 生成缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-更新-yum-依赖"><span class="nav-text">5. 更新 yum 依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-安装-nginx"><span class="nav-text">6. 安装 nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-启动-nginx"><span class="nav-text">7. 启动 nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-测试是否成功"><span class="nav-text">8. 测试是否成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-安全策略"><span class="nav-text">9. 安全策略</span></a></li></ol></div>
             
           </div>
         </section>
